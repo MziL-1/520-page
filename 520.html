@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>致孙女士</title>
+  <link rel="stylesheet" href="/520.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="timeNow">2026.05.20</div>
+      <h1 class="title">Hello，孙女士</h1>
+      <p class="subtitle">在520这天，你有3节课哎，很辛苦了。<br>这样吧，我这里有一个游戏——<br>挑战成功了就可以获得奖励呦</p>
+      <div class="button" role="button" tabindex="0" aria-label="开始挑战">
+        <span>开始挑战</span>
+      </div>
+    </header>
+    <section class="game" id="gameSection">
+      <p class="section-label">猜数字挑战</p>
+      <h2 class="section-title">猜一个 0~666 之间的数字</h2>
+      <p class="section-desc">提示会在你每次猜测后出现</p>
+      <div class="game-input-group">
+        <input type="number" class="game-input" id="guessInput" min="0" max="666" placeholder="输入你的猜测">
+        <button class="game-submit" id="guessSubmit">猜！</button>
+      </div>
+      <p class="game-hint" id="gameHint"></p>
+      <p class="game-attempts" id="gameAttempts"></p>
+    </section>
+    <main class="main">
+      <p class="section-label">恭喜通关</p>
+      <h2 class="section-title">选择你的奖励</h2>
+      <p class="section-desc">可多选，再次点击取消</p>
+      <div class="select">
+        <div class="box box1" data-name="奖励一：奶茶咖啡" role="checkbox" aria-checked="false" tabindex="0" aria-label="奶茶咖啡">
+          <img src="./img/1.jpg" alt="奶茶咖啡">
+          <div class="box-label">奶茶咖啡</div>
+        </div>
+        <div class="box box2" data-name="奖励二：精美小礼品" role="checkbox" aria-checked="false" tabindex="0" aria-label="精美小礼品">
+          <img src="./img/2.jpg" alt="精美小礼品">
+          <div class="box-label">精美小礼品</div>
+        </div>
+        <div class="box box3" data-name="奖励三：好吃的" role="checkbox" aria-checked="false" tabindex="0" aria-label="好吃的">
+          <img src="./img/3.jpg" alt="好吃的">
+          <div class="box-label">好吃的</div>
+        </div>
+        <div class="box box4" data-name="奖励四：盲盒" role="checkbox" aria-checked="false" tabindex="0" aria-label="盲盒">
+          <img src="./img/4.jpg" alt="盲盒">
+          <div class="box-label">盲盒</div>
+        </div>
+      </div>
+      <form action="https://formspree.io/f/mpqnqyjb" method="POST" style="display: none;">
+        <input type="hidden" name="selection" value="">
+      </form>
+      <div class="modal-overlay" id="confirmModal">
+      <div class="modal">
+        <p class="modal-title">确认选择</p>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-actions">
+          <button class="modal-btn modal-cancel" id="modalCancel">取消</button>
+          <button class="modal-btn modal-confirm" id="modalConfirm">确认</button>
+        </div>
+      </div>
+    </div>
+    <div class="confirm" role="button" tabindex="0" aria-label="确认选择">
+      <span>确认选择</span>
+    </div>
+  </main>
+    <footer class="footer">
+      <p class="footer-text">别不好意思选呀，昨天都已经讲好了哈 😄</p>
+      <p class="footer-text">如果你有什么想对我说的，just call me <a href="tel:15188399136" class="footer-phone">15188399136</a></p>
+    </footer>
+  </div>
+  <script src="/520.js"></script>
+</body>
+</html>

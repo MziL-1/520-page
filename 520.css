@@ -1,0 +1,521 @@
+:root {
+  --bg: #FAFAFA;
+  --card-bg: #FFFFFF;
+  --text: #1A1A1A;
+  --text-light: #888888;
+  --accent: #E53E3E;
+  --border: #E2E2E2;
+  --shadow: rgba(0, 0, 0, 0.06);
+  --shadow-hover: rgba(0, 0, 0, 0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 24px;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  padding: 60px 0 80px;
+}
+
+header {
+  text-align: center;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border);
+  animation: fadeIn 0.6s ease both;
+}
+
+header .timeNow {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 32px;
+}
+
+header .title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+  margin-bottom: 24px;
+}
+
+header .subtitle {
+  font-size: 16px;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+header .button {
+  display: inline-block;
+  padding: 14px 48px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--accent);
+  background: transparent;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+header .button:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+header .button:active {
+  transform: scale(0.97);
+}
+
+.game {
+  display: none;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.game.active {
+  display: block;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.game .section-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.game .section-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.game .section-desc {
+  font-size: 16px;
+  color: var(--text-light);
+  margin-bottom: 32px;
+}
+
+.game-input-group {
+  display: flex;
+  gap: 8px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.game-input {
+  flex: 1;
+  padding: 14px 16px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: inherit;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  text-align: center;
+  color: var(--text);
+  background: var(--card-bg);
+  transition: border-color 0.2s ease;
+}
+
+.game-input:focus {
+  border-color: var(--accent);
+}
+
+.game-input::placeholder {
+  color: #ccc;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.game-submit {
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.game-submit:hover {
+  background: #C53030;
+}
+
+.game-submit:active {
+  transform: scale(0.97);
+}
+
+.game-hint {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  min-height: 26px;
+  transition: all 0.3s ease;
+}
+
+.game-hint.too-big {
+  color: #E53E3E;
+}
+
+.game-hint.too-small {
+  color: #3182CE;
+}
+
+.game-hint.correct {
+  color: #38A169;
+  font-size: 20px;
+}
+
+.game-attempts {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-light);
+  min-height: 20px;
+}
+
+.game-success {
+  display: none;
+  margin-top: 24px;
+  padding: 20px;
+  background: #F0FFF4;
+  border: 1px solid #C6F6D5;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.game-success.active {
+  display: block;
+  animation: fadeInUp 0.4s ease;
+}
+
+.game-success p {
+  font-size: 16px;
+  color: #276749;
+  font-weight: 600;
+}
+
+.main {
+  display: none;
+  padding-top: 48px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.main.visible {
+  display: block;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.main .section-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.main .section-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.main .section-desc {
+  font-size: 16px;
+  color: var(--text-light);
+  margin-bottom: 32px;
+}
+
+.main .select {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.main .select .box {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background-color: var(--card-bg);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px var(--shadow);
+  border: 2px solid transparent;
+}
+
+.main .select .box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--shadow-hover);
+}
+
+.main .select .box:active {
+  transform: translateY(-2px);
+}
+
+.main .select .box.selected {
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(229, 62, 62, 0.15);
+}
+
+.main .select .box.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: popIn 0.3s ease;
+}
+
+.main .select .box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.main .select .box .box-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.main .confirm {
+  display: block;
+  width: 100%;
+  margin-top: 32px;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+  text-align: center;
+}
+
+.main .confirm:hover {
+  background: #C53030;
+}
+
+.main .confirm:active {
+  transform: scale(0.98);
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 32px;
+  width: 90%;
+  max-width: 340px;
+  text-align: center;
+  animation: fadeInUp 0.3s ease;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.modal-desc {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.modal-btn {
+  flex: 1;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.modal-cancel {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.modal-cancel:hover {
+  background: #EEEEEE;
+}
+
+.modal-confirm {
+  background: var(--accent);
+  color: #fff;
+}
+
+.modal-confirm:hover {
+  background: #C53030;
+}
+
+.footer {
+  display: none;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer.visible {
+  display: block;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.footer-text {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+.footer-phone {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.footer-phone:hover {
+  opacity: 0.7;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0 16px;
+  }
+
+  .container {
+    padding: 40px 0 60px;
+  }
+
+  header .title {
+    font-size: 26px;
+  }
+
+  header .subtitle {
+    font-size: 15px;
+  }
+
+  .main .select {
+    gap: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    background: linear-gradient(135deg, #FAFAFA 0%, #F0F0F0 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
