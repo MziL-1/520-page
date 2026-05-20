@@ -2,6 +2,47 @@
 
 一个为 520 定制的互动告白网页。
 
+## 在线部署步骤（GitHub Pages）
+
+### 1. 打开仓库设置
+
+进入 GitHub 仓库 `MziL-1/520-page`，点击 **Settings** 标签。
+
+### 2. 启用 GitHub Pages
+
+- 左侧菜单找到 **Pages**
+- Source 选择 **Deploy from a branch**
+- Branch 选择 **master**，文件夹选 **/ (root)**
+- 点击 **Save**
+
+### 3. 获取链接
+
+等待 1-2 分钟部署完成后，页面顶部会显示链接：
+
+```
+https://mziL-1.github.io/520-page/520.html
+```
+
+> ⚠️ 注意：GitHub Pages 的入口是 `520.html`，不是根目录，所以链接末尾需要加上 `/520.html`。
+
+### 4. 自定义入口（可选）
+
+如果想用根路径直接访问，可以把 `520.html` 重命名为 `index.html`：
+
+```bash
+git mv 520.html index.html
+git commit -m "rename to index.html for GitHub Pages"
+git push origin master
+```
+
+之后访问链接就是：
+
+```
+https://mziL-1.github.io/520-page/
+```
+
+---
+
 ## 在线部署步骤（Vercel）
 
 ### 1. 登录 Vercel
